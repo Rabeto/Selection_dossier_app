@@ -40,7 +40,7 @@
                             <th>Note_H.G</th>
                             <th>Note_ANG</th>
                             <th>Note_FR</th>
-                            <th>Actions</th>
+                            <th>Résultats</th>
                         </tr>
                     </thead>
                     <tbody id="myTable">
@@ -53,8 +53,7 @@
                             <td>{{ Candt.Note_ANG }}</td>
                             <td>{{ Candt.Note_FR }}</td>
                             <td>
-                                <a class="btn btn-info" href="/edit/{{ Candt.id }}"><img src="{% static 'images/glyphicons-151-edit.png' %}"></a>
-                                <a class="btn btn-danger" href="/delete/{{ Candt.id }}"><img src="{% static 'images/glyphicons-17-bin.png' %}"></a>
+                                Miandry
                             </td>
                         </tr>
         
@@ -63,52 +62,8 @@
                     </tbody>
                 </table>
             </div><br>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                Ajouter
-            </button>
-            <a class="btn btn-primary" href="/selection">sélections</a>
-
-             <!-- The Modal -->
-            <div class="modal fade" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                        <h4 class="modal-title">Ajout d'un Candidat</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <form action="/create">
-                                {%  csrf_token %}
-                                <label class="form-group" for="Nom">Nom: </label>
-                                <input class="form-control" type="text" name="Nom" required><br>
-                    
-                                <label class="form-group" for="Prenom">Prenom: </label>
-                                <input class="form-control" type="text" name="Prenom" required><br>
-                    
-                                <label class="form-group" for="Note_HG">Note Histo-Géo : </label>
-                                <input class="form-control" type="number" name="Note_HG" min="5" max="19" required><br>
-            
-                                <label for="Note_ANG" class="form-group">Note Anglais :</label>
-                                <input type="number" name="Note_ANG" class="form-control" min="5" max="19" required><br>
-            
-                                <label for="Note_FR" class="form-group">Note Français :</label>
-                                <input type="number" name="Note_FR" class="form-control" min="5" max="19" required><br>
-                                
-                                <br><input class="btn btn-success" type="submit" value="Ajouter">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-
-                            </form>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
+            <a class="btn btn-secondary" href="/index">Retour</a>
         </div>
-
     </body>
     <script>
         $(document).ready(function(){

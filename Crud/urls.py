@@ -27,5 +27,5 @@ urlpatterns = [
     path('edit/<id>/', views.edit, name='edit'),
     path('delete/<id>/', views.delete, name='delete'),
     path('update/<id>/', views.update, name='update'),
-    #path('login/', LoginView.as_view(), name='login'),
+    path('selection/', views.selection, name='selection'),
 ]

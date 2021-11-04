@@ -1,5 +1,8 @@
 from django.shortcuts import render,redirect,HttpResponse
 from .models import Candidat
+from .apps import CrudappConfig
+import numpy as np
+import pandas as pd
 
 # Create your views here.
 def index(request):
@@ -8,6 +11,14 @@ def index(request):
         'Candidats': Candidats,
     }
     return render(request,'index.html',context)
+
+def selection(request):
+    Candidats = Candidat.objects.all()
+    
+    context = {
+        'Candidats': Candidats,
+    }
+    return render(request,'selection.html',context)
 
 def create(request):
     print(request.POST)
