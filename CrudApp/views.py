@@ -14,11 +14,29 @@ def index(request):
 
 def selection(request):
     Candidats = Candidat.objects.all()
+
+    HG = Candidat.Note_HG
+    ANG = Candidat.Note_ANG
+    FR = Candidat.Note_FR
+    model = CrudappConfig.model
+
+    result_predicted = np.around(model.predict([[HG, ANG, FR]]))
+
+    Valeur = resultat(result_predicted)
     
     context = {
         'Candidats': Candidats,
+        'Valeur': Valeur,
     }
     return render(request,'selection.html',context)
+
+def resultat(result_predicted):
+    if result_predicted == 0 :
+        response_dict = {"Non Sélectionner"}
+    else:
+        response_dict = {"Sélectionner"}
+
+    return response_dict
 
 def create(request):
     print(request.POST)
