@@ -6,10 +6,11 @@ from .models import Candidat
 
 faker = Faker()
 
-for i in range(10):
+for i in range(100):
     nom = faker.first_name()
     prenom = faker.last_name()
     note_HG = faker.random_int(5,19)
     note_ANG = faker.random_int(5,19)
     note_FR = faker.random_int(5,19)
-    Candidat.objects.create(Nom = nom, Prenom = prenom, Note_HG = note_HG, Note_ANG = note_ANG, Note_FR = note_FR)
+    val = Candidat(Nom = nom, Prenom = prenom, Note_HG = note_HG, Note_ANG = note_ANG, Note_FR = note_FR)
+    val.save()

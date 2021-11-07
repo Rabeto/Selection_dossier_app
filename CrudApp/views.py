@@ -1,8 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponse
 from .models import Candidat
-from .apps import CrudappConfig
-import numpy as np
-import pandas as pd
 
 # Create your views here.
 def index(request):
@@ -14,29 +11,10 @@ def index(request):
 
 def selection(request):
     Candidats = Candidat.objects.all()
-
-    HG = Candidat.Note_HG
-    ANG = Candidat.Note_ANG
-    FR = Candidat.Note_FR
-    model = CrudappConfig.model
-
-    result_predicted = np.around(model.predict([[HG, ANG, FR]]))
-
-    Valeur = resultat(result_predicted)
-    
     context = {
         'Candidats': Candidats,
-        'Valeur': Valeur,
     }
     return render(request,'selection.html',context)
-
-def resultat(result_predicted):
-    if result_predicted == 0 :
-        response_dict = {"Non Sélectionner"}
-    else:
-        response_dict = {"Sélectionner"}
-
-    return response_dict
 
 def create(request):
     print(request.POST)
@@ -70,3 +48,4 @@ def update(request,id):
     Cand.Note_FR = request.GET['Note_FR']
     Cand.save()
     return redirect('/index')
+
