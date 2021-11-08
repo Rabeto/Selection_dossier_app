@@ -6,7 +6,7 @@ from .models import Candidat
 
 faker = Faker()
 
-for i in range(100):
+for i in range(30):
     nom = faker.first_name()
     prenom = faker.last_name()
     note_HG = faker.random_int(5,19)

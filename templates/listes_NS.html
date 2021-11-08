@@ -37,10 +37,6 @@
                         <tr>
                             <th>Nom</th>
                             <th>Prenom</th>
-                            <th>Note_H.G</th>
-                            <th>Note_ANG</th>
-                            <th>Note_FR</th>
-                            <th>Résultats</th>
                         </tr>
                     </thead>
                     <tbody id="myTable">
@@ -49,10 +45,6 @@
                         <tr>
                             <td>{{ Candt.Nom }}</td>
                             <td>{{ Candt.Prenom }}</td>
-                            <td>{{ Candt.Note_HG }}</td>
-                            <td>{{ Candt.Note_ANG }}</td>
-                            <td>{{ Candt.Note_FR }}</td>
-                            <td>{{ Candt.Result }}</td>
                         </tr>
         
                         {% endfor %}
@@ -60,9 +52,7 @@
                     </tbody>
                 </table>
             </div><br>
-            <a class="btn btn-secondary" href="/index">Retour</a>
-            <a class="btn btn-success" href="/listes_S">Listes des Sélectionner</a>
-            <a class="btn btn-danger" href="/listes_NS">Listes des Non Sélectionner</a>
+            <a class="btn btn-secondary" href="/selection">Retour</a>
         </div>
     </body>
     <script>

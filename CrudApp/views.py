@@ -11,10 +11,27 @@ def index(request):
 
 def selection(request):
     Candidats = Candidat.objects.all()
+
     context = {
         'Candidats': Candidats,
     }
     return render(request,'selection.html',context)
+
+def listes_S(request):
+    Candidats = Candidat.objects.filter(Result="Sélectionner")
+
+    context = {
+        'Candidats': Candidats,
+    }
+    return render(request,'listes_S.html',context)
+
+def listes_NS(request):
+    Candidats = Candidat.objects.filter(Result="Non Sélectionner")
+
+    context = {
+        'Candidats': Candidats,
+    }
+    return render(request,'listes_NS.html',context)
 
 def create(request):
     print(request.POST)
