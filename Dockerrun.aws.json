@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "username/beanstalk-flask",
+      "Name": "repo_projet-2022/crudpython2021-web:latest",
       "Update": "true"
     },
     "Ports": [
